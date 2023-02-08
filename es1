@@ -1,0 +1,36 @@
+#include<stdio.h>
+#define N 4
+int f(int M[][N],int r,int c);
+
+int main(){
+    int r,c;
+    int restituzione;
+    int M[N][N]={1,12,2,7,
+                 4,3,5,5,
+                 6,4,3,8,
+                 7,5,2,4};
+
+    //TODO: invocazioni funzioni
+    do{
+        printf("Inserire valore riga:\n");
+        scanf("%d",&r);
+        printf("Inserire valore colonna:\n");
+        scanf("%d",&c);}while(r<0||c<0||r>N-1||c>N-1);
+    restituzione=f(M, r, c);
+    //TODO: STAMPA --> ATTENZIONE: STAMPA CONSENTITA SOLO QUI <--
+    printf("f invocata su M in posizioni r = %d, c = %d restituisce %d\n",r,c,restituzione);
+    return 0;
+}
+int f(int M[][N],int r,int c)
+{
+    int riga,colonna;
+    for (riga=0; riga<N; riga++) {
+        if(M[riga][c]<M[r][c])
+            return 0;
+    }
+    for (colonna=0; colonna<N; colonna++) {
+        if(M[r][colonna]<M[r][c])
+            return 0;
+    }
+    return 1;
+}
