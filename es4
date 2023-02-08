@@ -1,0 +1,12 @@
+ Query 1: Esprimere in SQL l’interrogazione che estrae il nome dei dipendenti che non hanno mai fatto un viaggio più lungo di 90 km
+ 
+ SELECT D.Matricola
+ FROM Dipendente D,Viaggio V
+ GROUP BY D.Matricola,V.Codice
+HAVING Count(km)<=90
+ 
+ Query 2: Esprimere in SQL l’interrogazione che, per ogni settore riporta tutte le destinazioni in cui un dipendente si è recato in viaggio almeno una volta e quanti viaggi sono stati fatti verso quella meta.
+ 
+ SELECT DI.settore,Citta,count(*)
+ FROM Viaggio V,Destinazione D,Dipendente DI
+ GROUP BY MatrDipendente,Città
